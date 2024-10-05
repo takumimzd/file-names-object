@@ -24,3 +24,6 @@ export const fileNames = {
 } as const
 
 ````
+
+### npm
+https://www.npmjs.com/package/file-names-object

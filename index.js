@@ -37,7 +37,7 @@ function getFilePaths(dir) {
 
   files.forEach((file) => {
     const fullPath = path.join(dir, file);
-    const relativePath = path.relative(dirPath, fullPath);
+    const relativePath = path.relative(path.dirname(dirPath), fullPath);
     const stats = fs.statSync(fullPath);
 
     if (stats && stats.isDirectory()) {
@@ -46,7 +46,7 @@ function getFilePaths(dir) {
         ...getFilePaths(fullPath),
       };
     } else {
-      const valuePath = '/' + fullPath.replace(new RegExp(`^${dirPath}[\\\\\\/]`), '');
+      const valuePath = '/' + relativePath.replace(/\\/g, '/'); // Windows対応でパスの区切りを修正
       results[relativePath] = valuePath;
     }
   });

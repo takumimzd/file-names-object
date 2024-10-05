@@ -1,6 +1,6 @@
 # file-names-object
 
-A simple CLI tool to generate an object of public directory file paths for TypeScript.
+A simple CLI tool to generate an object of directory file paths for TypeScript.
 
 ### Usage
 
